@@ -1,0 +1,26 @@
+{
+  "name": "challengeApi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "standard && mocha --timeout 15000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "chai": "^4.3.3",
+    "chai-http": "^4.3.0",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "mocha": "^10.3.0",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.0",
+    "standard": "^17.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
+}

@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "92c23248-b4e3-4cbe-9ceb-064d0d76fd7c",
+		"name": "API CHALLENGE",
+		"description": "Here we have a few request to test with postman about CSV name list and converted data.\n\nGET /files/list\n\n- This GET request, lists all available CSV by name.\n    \n\nGET /files/data\n\n- This GET request, lists all available CSV with converted data, obtaining NAME, TEXT, NUMBER, HEX data.\n    \n\nGET /files/data?fileName=\"fileName\"\n\n- This GET request, list only CSV fileName, called by queryParams",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32143426",
+		"_collection_link": "https://crimson-rocket-658882.postman.co/workspace/BSF-Document~789c7f7a-980c-4011-adcb-deb23a292e15/collection/32143426-92c23248-b4e3-4cbe-9ceb-064d0d76fd7c?action=share&source=collection_link&creator=32143426"
+	},
+	"item": [
+		{
+			"name": "getCsv",
+			"item": [
+				{
+					"name": "GET /files/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/files/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"files",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /files/data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/files/data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"files",
+								"data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /files/data?fileName=\"name\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/files/data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"files",
+								"data"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
