@@ -1,8 +1,8 @@
 const express = require('express')
-const config = require('../env.secrets.json')
+const config = require('./env.secrets.json')
 const app = express()
-const port = config.port
-const { swaggerDocs: V1SwaggerDocs } = require('../src/routes/swagger')
+const port = process.env.PORT || config.port
+const { swaggerDocs: V1SwaggerDocs } = require('./src/routes/swagger')
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
@@ -17,7 +17,11 @@ app.use((req, res, next) => {
     next()
   }
 })
-app.use('/api', require('./routes/pokeapi/index'))
+app.use('/api', require('./src/routes/pokeapi/index'))
+
+app.get('/', (req, res) => {
+  res.send('hola')
+})
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`)
