@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "standard && mocha --timeout 15000"
+    "test": "standard && mocha --timeout 15000",
+    "vercel-build": "echo hello"
   },
   "keywords": [],
   "author": "",
