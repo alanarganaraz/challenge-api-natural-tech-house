@@ -1,4 +1,4 @@
-# API Challenge TOOLBOX
+# API Challenge Natural Tech House
 
 This API could be run with NODE v14.
 
