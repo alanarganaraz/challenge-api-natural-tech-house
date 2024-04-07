@@ -1,71 +1,103 @@
 {
 	"info": {
-		"_postman_id": "92c23248-b4e3-4cbe-9ceb-064d0d76fd7c",
+		"_postman_id": "279c0b0e-ed5e-4e22-8597-1ef644520424",
 		"name": "API CHALLENGE",
-		"description": "Here we have a few request to test with postman about CSV name list and converted data.\n\nGET /files/list\n\n- This GET request, lists all available CSV by name.\n    \n\nGET /files/data\n\n- This GET request, lists all available CSV with converted data, obtaining NAME, TEXT, NUMBER, HEX data.\n    \n\nGET /files/data?fileName=\"fileName\"\n\n- This GET request, list only CSV fileName, called by queryParams",
+		"description": "Here we have a few request to test with postman about pokemon.\n\nGET /api/pokemon/all\n\n- This GET request, lists all pokemon with default limit of 20.\n    \n\nGET /api/pokemon/name?pokemonName={pokemonName}\n\n- This GET request, lists pokemon by name\n    \n\nGET /api/pokemon/type?pokemonType={pokemonType}\n\n- This GET request, lists all pokemon with type at query params.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32143426",
-		"_collection_link": "https://crimson-rocket-658882.postman.co/workspace/BSF-Document~789c7f7a-980c-4011-adcb-deb23a292e15/collection/32143426-92c23248-b4e3-4cbe-9ceb-064d0d76fd7c?action=share&source=collection_link&creator=32143426"
+		"_exporter_id": "19074634"
 	},
 	"item": [
 		{
-			"name": "getCsv",
+			"name": "ListPokemon",
 			"item": [
 				{
-					"name": "GET /files/list",
+					"name": "GET /api/pokemon/all",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "api-key",
+								"value": "nE5X9dKc8JbH3Y2WqRfPzA1t",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:3000/files/list",
+							"raw": "http://localhost:3000/api/pokemon/all",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"files",
-								"list"
+								"api",
+								"pokemon",
+								"all"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET /files/data",
+					"name": "GET /api/pokemon/name?pokemonName=\"name\"",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "api-key",
+								"value": "nE5X9dKc8JbH3Y2WqRfPzA1t",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:3000/files/data",
+							"raw": "http://localhost:3000/api/pokemon/name?pokemonName=pikachu",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"files",
-								"data"
+								"api",
+								"pokemon",
+								"name"
+							],
+							"query": [
+								{
+									"key": "pokemonName",
+									"value": "pikachu"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET /files/data?fileName=\"name\"",
+					"name": "GET /api/pokemon/type?pokemonType=\"electric\"",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "api-key",
+								"value": "nE5X9dKc8JbH3Y2WqRfPzA1t",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:3000/files/data",
+							"raw": "http://localhost:3000/api/pokemon/type?pokemonType=electric",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"files",
-								"data"
+								"api",
+								"pokemon",
+								"type"
+							],
+							"query": [
+								{
+									"key": "pokemonType",
+									"value": "electric"
+								}
 							]
 						}
 					},

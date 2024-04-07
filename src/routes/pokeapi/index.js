@@ -316,7 +316,7 @@ const router = Router()
 
 /**
  * @openapi
- * /api/pokemon/name?pokemonType={pokemonType}:
+ * /api/pokemon/type?pokemonType={pokemonType}:
  *   get:
  *     tags:
  *       - ListPokemon
