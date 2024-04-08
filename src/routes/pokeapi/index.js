@@ -492,9 +492,9 @@ router.get('/pokemon/name', tokenVerification, async (req, res) => {
 })
 
 router.get('/pokemon/type', tokenVerification, async (req, res) => {
-  const { pokemonType } = req.query
+  const { offset, limit, pokemonType } = req.query
   try {
-    const data = await getPokemonByType(pokemonType)
+    const data = await getPokemonByType(offset, limit, pokemonType)
     return res.status(200).send(data)
   } catch (error) {
     return res.status(error.status).send({ error })
@@ -502,9 +502,9 @@ router.get('/pokemon/type', tokenVerification, async (req, res) => {
 })
 
 router.get('/pokemon/all', tokenVerification, async (req, res) => {
-    const { limit } = req.query;
+    const { offset, limit } = req.query;
   try {
-    const data = await getAllPokemon(limit)
+    const data = await getAllPokemon(offset, limit)
     return res.status(200).send(data)
   } catch (error) {
     return res.status(error.status).send({ error })

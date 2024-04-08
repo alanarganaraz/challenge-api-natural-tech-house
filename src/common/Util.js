@@ -1,3 +1,4 @@
+const config = require('../../env.secrets.json');
 
 const createError = (status = 500, message = 'Ha ocurrido un error.') => {
   return {
@@ -14,6 +15,7 @@ const formatPokemonDetails = (pokemonData) => {
   const pokemonTypes = [];
   const pokemonAbilities = [];
   const pokemonStats = {};
+  const pokemonImage = pokemonData.sprites.front_default ? pokemonData.sprites.front_default : config.defaultPokemonImage;
   
   if (pokemonData && pokemonData.types) { 
     pokemonData.types.forEach(type => {
@@ -35,6 +37,7 @@ const formatPokemonDetails = (pokemonData) => {
 
   const pokemonDetail = {
     id: pokemonData.id,
+    image: pokemonImage,
     name: pokemonData.name,
     height: pokemonData.height,
     weight: pokemonData.weight,

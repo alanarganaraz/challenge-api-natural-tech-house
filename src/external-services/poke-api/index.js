@@ -21,14 +21,16 @@ const getPokemonByName = async (pokemonName) => {
   }
 }
 
-const getPokemonByType = async (pokemonType) => {
+const getPokemonByType = async (offset = 0, limit = 20, pokemonType) => {
   try {
     const endpoint = `${config.pokeApiBaseUrl}/type/${pokemonType}`;
     const response = await axios.get(endpoint);
     const pokemonData = response.data;
     
     if (pokemonData) {
-      const pokemonDetailsPromises = pokemonData.pokemon.map(async (pokemon) => {
+      const pokemonList = pokemonData.pokemon.slice(offset, offset + limit);
+
+      const pokemonDetailsPromises = pokemonList.map(async (pokemon) => {
         const pokemonResponse = await axios.get(pokemon.pokemon.url);
         const pokemonData = pokemonResponse.data;
 
@@ -50,9 +52,9 @@ const getPokemonByType = async (pokemonType) => {
   }
 };
 
-const getAllPokemon = async (limit) => {
+const getAllPokemon = async (offset = 0, limit = 20) => {
   try {
-    const endpoint = `${config.pokeApiBaseUrl}/pokemon?limit=${limit}`;
+    const endpoint = `${config.pokeApiBaseUrl}/pokemon?offset=${offset}&limit=${limit}`;
     const response = await axios.get(endpoint);
     const pokemonData = response.data;
     
