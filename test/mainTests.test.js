@@ -31,6 +31,7 @@ describe('GET /api/pokemon/all', () => {
     const expectedResponse = [
       {
           "id": 1,
+          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
           "name": "bulbasaur",
           "height": 7,
           "weight": 69,
@@ -97,6 +98,7 @@ describe('GET /api/pokemon/name?pokemonName={pokemonName}', () => {
     const expectedResponse = {
       "id": 25,
       "name": "pikachu",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
       "height": 4,
       "weight": 60,
       "type": [
