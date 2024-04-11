@@ -84,7 +84,7 @@ docker run -p 3000:3000 alanarganaraz/challenge-api-natural-tech-house:2.0
 docker pull alanarganaraz/challenge-test-natural-tech-house
 
 ## Then, you must run that image
-docker run -p 3000:3000 alanarganaraz/challenge-api-test:2.0
+docker run -p 3000:3000 alanarganaraz/challenge-test-natural-tech-house:2.0
 
 Finally, you can run the test and start the API using Docker.
 
