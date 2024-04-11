@@ -482,9 +482,10 @@ const router = Router()
  *     in: header
  */
 router.get('/pokemon/name', tokenVerification, async (req, res) => {
-  const { pokemonName } = req.query
+  let { pokemonName } = req.query
+  pokemonName = pokemonName.toLowerCase();
+
   try {
-    pokemonName = pokemonName.toLowerCase();
     const data = await getPokemonByName(pokemonName)
     return res.status(200).send([data])
   } catch (error) {
@@ -493,9 +494,10 @@ router.get('/pokemon/name', tokenVerification, async (req, res) => {
 })
 
 router.get('/pokemon/type', tokenVerification, async (req, res) => {
-  const { pokemonType } = req.query
+  let { pokemonType } = req.query
+  pokemonType = pokemonType.toLowerCase();
+
   try {
-    pokemonType = pokemonType.toLowerCase();
     const data = await getPokemonByType(pokemonType)
     return res.status(200).send(data)
   } catch (error) {
