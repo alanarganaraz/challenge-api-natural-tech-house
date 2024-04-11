@@ -51,7 +51,7 @@ const getPokemonByType = async (pokemonType) => {
   }
 };
 
-const getAllPokemon = async (offset = 0, limit = 20) => {
+const getAllPokemon = async (offset = 0, limit = 10) => {
   try {
     const endpoint = `${config.pokeApiBaseUrl}/pokemon?offset=${offset}&limit=${limit}`;
     const response = await axios.get(endpoint);

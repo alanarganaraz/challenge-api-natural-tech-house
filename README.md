@@ -3,6 +3,9 @@
 ## Install and run Api and Test
 
 ```python
+
+Should use Node >= v14
+
 # Install
 npm install
 
@@ -20,27 +23,23 @@ npm test
 
 ```python
 
-You can use localhost instance, or deploy instance.
+First of all, you should run the API with the following command:
 
-To make sure that API it's working correctly, you can run this request
+npm start
 
-curl --location 'https://challenge-api-natural-tech-house.onrender.com/ping'
+Then, to make sure that API it's working correctly, you can run this request
+
+curl --location 'http://localhost:3000/ping'
 
 This request should return "pong"
 
 
+Here I have an example of CURL with a valid API KEY to make a request successfully.
 
-Here I have an example CURL with a valid APIKEY to make a request successfully.
-
-LOCALHOST:
 curl --location 'http://localhost:3000/api/pokemon/all?limit=1' \
 --header 'api-key: nE5X9dKc8JbH3Y2WqRfPzA1t'
 
-DEPLOYED:
-curl --location 'https://challenge-api-natural-tech-house.onrender.com/api/pokemon/all?limit=1' \
---header 'api-key: nE5X9dKc8JbH3Y2WqRfPzA1t'
-
-Both request should return:
+Request should return:
 
 [
     {
@@ -92,13 +91,7 @@ docker run -p 3000:3000 alanarganaraz/challenge-api-test
 ## Swagger documentation can be found at
 
 ```python
-
-  LOCAL
   http://localhost:3000/api/v1/docs
-
-  DEPLOYED
-  https://challenge-api-natural-tech-house.onrender.com/api/v1/docs
-
 ```
 
 ## Postman documentation and requests can be found inside the project
