@@ -485,16 +485,16 @@ router.get('/pokemon/name', tokenVerification, async (req, res) => {
   const { pokemonName } = req.query
   try {
     const data = await getPokemonByName(pokemonName)
-    return res.status(200).send(data)
+    return res.status(200).send([data])
   } catch (error) {
     return res.status(error.status).send({ error })
   }
 })
 
 router.get('/pokemon/type', tokenVerification, async (req, res) => {
-  const { offset, limit, pokemonType } = req.query
+  const { pokemonType } = req.query
   try {
-    const data = await getPokemonByType(parseInt(offset), parseInt(limit), pokemonType)
+    const data = await getPokemonByType(pokemonType)
     return res.status(200).send(data)
   } catch (error) {
     return res.status(error.status).send({ error })

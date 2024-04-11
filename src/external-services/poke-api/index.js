@@ -21,16 +21,15 @@ const getPokemonByName = async (pokemonName) => {
   }
 }
 
-const getPokemonByType = async (offset = 0, limit = 20, pokemonType) => {
+const getPokemonByType = async (pokemonType) => {
   try {
     const endpoint = `${config.pokeApiBaseUrl}/type/${pokemonType}`;
     const response = await axios.get(endpoint);
     const pokemonData = response.data;
     
     if (pokemonData) {
-      const pokemonList = pokemonData.pokemon.slice(offset, offset + limit);
 
-      const pokemonDetailsPromises = pokemonList.map(async (pokemon) => {
+      const pokemonDetailsPromises = pokemonData.pokemon.map(async (pokemon) => {
         const pokemonResponse = await axios.get(pokemon.pokemon.url);
         const pokemonData = pokemonResponse.data;
 
