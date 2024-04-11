@@ -95,7 +95,7 @@ describe('GET /api/pokemon/name?pokemonName={pokemonName}', () => {
 
   it('should return 200 with a valid apiKey', async () => {
     const apiKey = config.apiKey;
-    const expectedResponse = {
+    const expectedResponse = [{
       "id": 25,
       "name": "pikachu",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
@@ -116,7 +116,7 @@ describe('GET /api/pokemon/name?pokemonName={pokemonName}', () => {
           "special-defense": 50,
           "speed": 90
       }
-  };
+  }];
     const res = await chai.request(app)
       .get('/api/pokemon/name?pokemonName=pikachu')
       .set('api-key', apiKey);
