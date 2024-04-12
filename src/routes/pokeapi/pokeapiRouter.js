@@ -1,6 +1,5 @@
-const { Router } = require('express')
-const { getPokemonByName, getPokemonByType, getAllPokemon } = require('../../external-services/poke-api');
-const { tokenVerification } = require('../../middleware/tokenVerification');
+const { Router } = require('express');
+const { getPokemonByNameController, getPokemonByTypeController, getAllPokemonController } = require('../../controller/pokeapiController');
 const router = Router()
 
 /**
@@ -481,38 +480,8 @@ const router = Router()
  *     name: api-key
  *     in: header
  */
-router.get('/pokemon/name', tokenVerification, async (req, res) => {
-  let { pokemonName } = req.query
-  pokemonName = pokemonName.toLowerCase();
-
-  try {
-    const data = await getPokemonByName(pokemonName)
-    return res.status(200).send([data])
-  } catch (error) {
-    return res.status(error.status).send({ error })
-  }
-})
-
-router.get('/pokemon/type', tokenVerification, async (req, res) => {
-  let { pokemonType } = req.query
-  pokemonType = pokemonType.toLowerCase();
-
-  try {
-    const data = await getPokemonByType(pokemonType)
-    return res.status(200).send(data)
-  } catch (error) {
-    return res.status(error.status).send({ error })
-  }
-})
-
-router.get('/pokemon/all', tokenVerification, async (req, res) => {
-    const { offset, limit } = req.query;
-  try {
-    const data = await getAllPokemon(offset, limit)
-    return res.status(200).send(data)
-  } catch (error) {
-    return res.status(error.status).send({ error })
-  }
-})
+router.get('/name', getPokemonByNameController)
+router.get('/type', getPokemonByTypeController)
+router.get('/all', getAllPokemonController)
 
 module.exports = router

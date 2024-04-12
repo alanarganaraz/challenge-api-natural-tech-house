@@ -3,6 +3,8 @@ const config = require('./env.secrets.json')
 const app = express()
 const port = config.port
 const { swaggerDocs: V1SwaggerDocs } = require('./src/routes/swagger')
+const { tokenVerification } = require('./src/middleware/tokenVerification')
+const v1PokeapiRouter = require('./src/routes/pokeapi/pokeapiRouter')
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
@@ -16,7 +18,7 @@ app.use((req, res, next) => {
     next()
   }
 })
-app.use('/api', require('./src/routes/pokeapi/index'))
+app.use('/api/pokemon', tokenVerification, v1PokeapiRouter)
 
 app.get('/ping', (req, res) => {
   res.send('pong')

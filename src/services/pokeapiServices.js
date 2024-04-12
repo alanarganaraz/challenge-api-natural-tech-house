@@ -1,6 +1,6 @@
 const axios = require('axios')
-const config = require('../../../env.secrets.json')
-const { createError, formatPokemonDetails } = require('../../common/Util')
+const config = require('../../env.secrets.json')
+const { createError, formatPokemonDetails } = require('../common/Util')
 
 const getPokemonByName = async (pokemonName) => {
   try {
